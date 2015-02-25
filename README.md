@@ -1,4 +1,4 @@
-nonpositive
+Nonpositive
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
@@ -17,18 +17,35 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 ## Usage
 
 ``` javascript
-var foo = require( 'validate.io-nonpositive' );
+var isNonPositive = require( 'validate.io-nonpositive' );
 ```
 
-#### foo( value )
+#### isNonPositive( value )
 
-What does this function do?
+Validates if a `value` is a nonpositive `number`.
+
+``` javascript
+var value = -Math.PI;
+
+var bool = isNonPositive( value );
+// returns true
+```
+
 
 
 ## Examples
 
 ``` javascript
-var foo = require( 'validate.io-nonpositive' );
+var isNonPositive = require( 'validate.io-nonpositive' );
+
+console.log( isNonPositive( -Math.PI ) );
+// returns true
+
+console.log( isNonPositive( 0 ) );
+// returns true
+
+console.log( isNonPositive( 1 ) );
+// returns false
 ```
 
 To run the example code from the top-level application directory,

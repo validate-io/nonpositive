@@ -7,7 +7,7 @@ var // Expectation library:
 	chai = require( 'chai' ),
 
 	// Module to be tested:
-	lib = require( './../lib' );
+	isNonPositive = require( './../lib' );
 
 
 // VARIABLES //
@@ -21,9 +21,41 @@ var expect = chai.expect,
 describe( 'validate.io-nonpositive', function tests() {
 
 	it( 'should export a function', function test() {
-		expect( lib ).to.be.a( 'function' );
+		expect( isNonPositive ).to.be.a( 'function' );
 	});
 
-	it( 'should do something' );
+	it( 'should positively validate', function test() {
+		var bool;
+
+		bool = isNonPositive( -Math.PI );
+		assert.ok( bool );
+
+		bool = isNonPositive( 0 );
+		assert.ok( bool );
+
+		bool = isNonPositive( Number.NEGATIVE_INFINITY );
+		assert.ok( bool );
+	});
+
+	it( 'should negatively validate', function test() {
+		var values = [
+			'5',
+			1,
+			null,
+			undefined,
+			true,
+			NaN,
+			function(){},
+			[],
+			{}
+		];
+
+		for ( var i = 0; i < values.length; i++ ) {
+			assert.notOk( badValue( values[i] ) );
+		}
+		function badValue( value ) {
+			return isNonPositive( value );
+		}
+	});
 
 });

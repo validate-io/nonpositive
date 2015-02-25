@@ -26,12 +26,20 @@
     "validate.io",
     "validate",
     "validation",
-    "validator"
+    "validator",
+    "valid",
+    "number",
+    "nonpositive",
+    "is",
+    "isnumber",
+    "isnonpositive"
   ],
   "bugs": {
     "url": "https://github.com/validate-io/nonpositive/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "validate.io-number": "^1.0.3"
+  },
   "devDependencies": {
     "chai": "2.x.x",
     "mocha": "2.x.x",
